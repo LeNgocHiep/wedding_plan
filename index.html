@@ -204,6 +204,32 @@
     .hero { padding: 2.5rem 1rem 2rem; }
     .tab-btn { font-size: 13px; padding: 8px 10px; }
   }
+
+  .call-link {
+    color: var(--green-600); font-weight: 700; text-decoration: none;
+    padding: 2px 8px; background: var(--green-50); border-radius: 20px;
+    display: inline-block; font-size: 12px;
+    border: 1px solid var(--green-100);
+  }
+  .call-link:hover { background: var(--green-100); }
+  .web-link {
+    color: var(--blue-600); font-weight: 600; text-decoration: none;
+    font-size: 12px;
+  }
+  .web-link:hover { text-decoration: underline; }
+
+  .qc-card {
+    display: block; text-decoration: none;
+    background: white; border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg); padding: .75rem 1rem;
+    transition: box-shadow .15s, transform .1s;
+    box-shadow: var(--shadow-sm);
+  }
+  .qc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+  .qc-card:active { transform: scale(0.98); }
+  .qc-name { font-size: 13px; font-weight: 600; color: #1a1a18; margin-bottom: 3px; }
+  .qc-phone { font-size: 16px; font-weight: 700; color: var(--green-600); margin-bottom: 2px; }
+  .qc-note { font-size: 11px; color: var(--gray-400); }
 </style>
 </head>
 <body>
@@ -225,6 +251,39 @@
 <main>
   <div class="alert-banner">
     <strong>✅ Lợi thế địa lý:</strong> Ea Drăng nằm ngay trên <strong>Quốc lộ 14</strong> — tất cả xe Sài Gòn–Ea H'Leo đều đi qua đây. Xe trả thẳng tại cổng Khách sạn Hoa Đào. Chiều về, xe đón ngay tại Ea Drăng — <strong>không cần ra tận BMT</strong> (cách ~70km). Hoàng Thủy, Điều Hòa, Cường Ny, Anh Phụng đều có điểm đón tại Ea Drăng.
+  </div>
+
+
+  <!-- QUICK CONTACT BAR -->
+  <div style="margin: 1.25rem 0;">
+    <div class="sec-label" style="margin-top:0; margin-bottom:.75rem;">📞 Danh bạ nhà xe — nhấn để gọi ngay</div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap:8px;">
+      <a href="tel:+84962772775" class="qc-card" style="background:var(--green-50); border:1.5px solid var(--green-700);">
+        <div class="qc-name" style="color:var(--green-800);">🚌 Hoàng Thủy</div>
+        <div class="qc-phone" style="color:var(--green-600);">0962 772 775</div>
+        <div class="qc-note">Hotline: 1900 9966 33</div>
+      </a>
+      <a href="tel:+84972908908" class="qc-card">
+        <div class="qc-name">🚌 Cường Ny</div>
+        <div class="qc-phone">0972 908 908</div>
+        <div class="qc-note">Web: cuongny.com.vn</div>
+      </a>
+      <a href="tel:+84967142020" class="qc-card">
+        <div class="qc-name">🚌 Điều Hòa</div>
+        <div class="qc-phone">0967 142 020</div>
+        <div class="qc-note">0967 132 020</div>
+      </a>
+      <a href="tel:+84989448779" class="qc-card">
+        <div class="qc-name">🚌 Anh Phụng</div>
+        <div class="qc-phone">0989 448 779</div>
+        <div class="qc-note">VP Ea Drăng: 0905 499 489</div>
+      </a>
+      <a href="tel:19006067" class="qc-card">
+        <div class="qc-name">🚌 Phương Trang</div>
+        <div class="qc-phone">1900 6067</div>
+        <div class="qc-note">Web: futabus.vn</div>
+      </a>
+    </div>
   </div>
 
   <div class="tab-group">
@@ -258,7 +317,19 @@
         <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
         <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~04:00–06:00</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">260.000–350.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0962 772 775</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84962772775" class="call-link">0962 772 775</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:19009966 33" class="call-link">1900 9966 33</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://vexere.com/vi-VN/nha-xe-hoang-thuy-gia-lai-2e99.html" target="_blank" class="web-link">vexere.com · Hoàng Thủy</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Điều Hòa</span><span class="bus-tag tag-alt">#2</span></div>
@@ -267,7 +338,19 @@
         <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
         <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~05:00–07:00</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Điều Hòa"</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84967142020" class="call-link">0967 142 020</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84967132020" class="call-link">0967 132 020</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://vexere.com/vi-VN/nha-xe-dieu-hoa-2e126.html" target="_blank" class="web-link">vexere.com · Điều Hòa</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Cường Ny</span><span class="bus-tag tag-alt">#3</span></div>
@@ -276,7 +359,19 @@
         <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
         <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~05:00–07:00</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">330.000–450.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0972 908 908</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84972908908" class="call-link">0972 908 908</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84979514514" class="call-link">0979 514 514</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://cuongny.com.vn" target="_blank" class="web-link">cuongny.com.vn</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Anh Phụng</span><span class="bus-tag tag-alt">#4</span></div>
@@ -285,7 +380,19 @@
         <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
         <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~06:00 sáng</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Anh Phụng"</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84989448779" class="call-link">0989 448 779</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84905499489" class="call-link">0905 499 489</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://xeanhphung.com" target="_blank" class="web-link">xeanhphung.com</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Phương Trang</span><span class="bus-tag tag-alt">#5</span></div>
@@ -294,7 +401,15 @@
         <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
         <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~05:00–08:00</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">từ 255.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">1900 6067 · futabus.vn</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:19006067" class="call-link">1900 6067</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://futabus.vn" target="_blank" class="web-link">futabus.vn</a></span>
+        </div>
       </div>
     </div>
     <div class="note note-blue">Khi đặt vé: báo nhà xe <strong>điểm trả là Khách sạn Hoa Đào, TT. Ea Drăng</strong>. Xe sẽ thả thẳng tại cổng — không cần Grab.</div>
@@ -376,7 +491,19 @@
         <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–06:00 sáng 17/5</span></div>
         <div class="bus-row"><span class="lbl">Điểm trả SGN</span><span class="val">BX Miền Đông, VP Tân Bình</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">260.000–350.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0962 772 775</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84962772775" class="call-link">0962 772 775</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:19009966 33" class="call-link">1900 9966 33</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://vexere.com/vi-VN/nha-xe-hoang-thuy-gia-lai-2e99.html" target="_blank" class="web-link">vexere.com · Hoàng Thủy</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Cường Ny</span><span class="bus-tag tag-alt">#2</span></div>
@@ -384,7 +511,19 @@
         <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–07:00 sáng 17/5</span></div>
         <div class="bus-row"><span class="lbl">Điểm trả SGN</span><span class="val">BX Miền Đông, nội thành</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">330.000–450.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0972 908 908</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84972908908" class="call-link">0972 908 908</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84979514514" class="call-link">0979 514 514</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://cuongny.com.vn" target="_blank" class="web-link">cuongny.com.vn</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Điều Hòa</span><span class="bus-tag tag-alt">#3</span></div>
@@ -392,7 +531,19 @@
         <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–07:00 sáng 17/5</span></div>
         <div class="bus-row"><span class="lbl">Điểm trả SGN</span><span class="val">BX Miền Đông, VP Tân Bình</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Điều Hòa"</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84967142020" class="call-link">0967 142 020</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84967132020" class="call-link">0967 132 020</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://vexere.com/vi-VN/nha-xe-dieu-hoa-2e126.html" target="_blank" class="web-link">vexere.com · Điều Hòa</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Anh Phụng</span><span class="bus-tag tag-alt">#4</span></div>
@@ -400,7 +551,19 @@
         <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~03:00–04:00 sáng 17/5</span></div>
         <div class="bus-row"><span class="lbl">Điểm trả SGN</span><span class="val">BX Miền Đông, nội thành</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Anh Phụng"</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84989448779" class="call-link">0989 448 779</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84905499489" class="call-link">0905 499 489</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://xeanhphung.com" target="_blank" class="web-link">xeanhphung.com</a></span>
+        </div>
       </div>
     </div>
     <div class="note note-amber"><strong>⚠️ Quan trọng:</strong> Xe về chạy từ Gia Lai/Ea H'Leo xuống, ghé Ea Drăng theo QL14. Cần <strong>đặt vé chiều về trước khi lên đường</strong> (đặt cùng lúc với vé đi) và xác nhận giờ đón với nhà xe vào sáng 16/5. Anh Phụng có văn phòng ngay tại Ea Drăng (462 Giải Phóng) — rất thuận tiện mua vé trực tiếp.</div>
@@ -433,7 +596,19 @@
         <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
         <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~04:00–06:00</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">260.000–350.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0962 772 775</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84962772775" class="call-link">0962 772 775</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:19009966 33" class="call-link">1900 9966 33</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://vexere.com/vi-VN/nha-xe-hoang-thuy-gia-lai-2e99.html" target="_blank" class="web-link">vexere.com · Hoàng Thủy</a></span>
+        </div>
       </div>
       <div class="bus-card featured">
         <div class="bus-card-top"><span class="bus-name">Cường Ny</span><span class="bus-tag tag-top">Gợi ý #1</span></div>
@@ -441,7 +616,19 @@
         <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
         <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~05:00–07:00</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">330.000–450.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0972 908 908</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84972908908" class="call-link">0972 908 908</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84979514514" class="call-link">0979 514 514</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://cuongny.com.vn" target="_blank" class="web-link">cuongny.com.vn</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Điều Hòa</span><span class="bus-tag tag-alt">#3</span></div>
@@ -449,7 +636,19 @@
         <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
         <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~05:00–07:00</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Điều Hòa"</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84967142020" class="call-link">0967 142 020</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84967132020" class="call-link">0967 132 020</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://vexere.com/vi-VN/nha-xe-dieu-hoa-2e126.html" target="_blank" class="web-link">vexere.com · Điều Hòa</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Anh Phụng</span><span class="bus-tag tag-alt">#4</span></div>
@@ -457,7 +656,19 @@
         <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
         <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~06:00 sáng</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Anh Phụng"</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84989448779" class="call-link">0989 448 779</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84905499489" class="call-link">0905 499 489</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://xeanhphung.com" target="_blank" class="web-link">xeanhphung.com</a></span>
+        </div>
       </div>
     </div>
     <div class="note note-blue">Khi đặt vé: báo nhà xe <strong>điểm trả là Khách sạn Hoa Đào, TT. Ea Drăng</strong>.</div>
@@ -525,28 +736,76 @@
         <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~19:00–21:30</span></div>
         <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–06:00 sáng 17/5</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">260.000–350.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0962 772 775</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84962772775" class="call-link">0962 772 775</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:19009966 33" class="call-link">1900 9966 33</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://vexere.com/vi-VN/nha-xe-hoang-thuy-gia-lai-2e99.html" target="_blank" class="web-link">vexere.com · Hoàng Thủy</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Anh Phụng</span><span class="bus-tag tag-alt">#2</span></div>
         <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~18:30</span></div>
         <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~03:00–04:00 sáng 17/5</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Anh Phụng"</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84989448779" class="call-link">0989 448 779</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84905499489" class="call-link">0905 499 489</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://xeanhphung.com" target="_blank" class="web-link">xeanhphung.com</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Cường Ny</span><span class="bus-tag tag-alt">#3</span></div>
         <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~19:00–22:00</span></div>
         <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–07:00 sáng 17/5</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">330.000–450.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0972 908 908</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84972908908" class="call-link">0972 908 908</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84979514514" class="call-link">0979 514 514</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://cuongny.com.vn" target="_blank" class="web-link">cuongny.com.vn</a></span>
+        </div>
       </div>
       <div class="bus-card">
         <div class="bus-card-top"><span class="bus-name">Điều Hòa</span><span class="bus-tag tag-alt">#4</span></div>
         <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~20:00–22:00</span></div>
         <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–07:00 sáng 17/5</span></div>
         <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
-        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Điều Hòa"</span></div>
+        
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84967142020" class="call-link">0967 142 020</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">📞 Gọi ngay</span>
+          <span class="val"><a href="tel:+84967132020" class="call-link">0967 132 020</a></span>
+        </div>
+        <div class="bus-row">
+          <span class="lbl">🌐 Đặt vé</span>
+          <span class="val"><a href="https://vexere.com/vi-VN/nha-xe-dieu-hoa-2e126.html" target="_blank" class="web-link">vexere.com · Điều Hòa</a></span>
+        </div>
       </div>
     </div>
     <div class="note note-amber"><strong>⚠️ Quan trọng:</strong> Xe về xuất phát từ Gia Lai hoặc Ea H'Leo rồi đi qua Ea Drăng. Cần <strong>đặt vé trước & báo điểm đón là QL14 Ea Drăng / KS Hoa Đào</strong> để tài xế ghé đón. Giờ cụ thể có thể dao động — liên hệ nhà xe xác nhận trước ngày đi.</div>
