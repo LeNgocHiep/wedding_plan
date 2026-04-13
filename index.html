@@ -3,206 +3,569 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kế hoạch đi đám cưới</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
-
+<title>Kế hoạch đám cưới · Sài Gòn → Ea Drăng</title>
 <style>
-body{
-  font-family:'Be Vietnam Pro',sans-serif;
-  background:#f6f7fb;
-  margin:0;
-  color:#1f2937;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* HERO */
-.hero{
-  background:linear-gradient(135deg,#ff7eb3,#ff758c);
-  color:white;
-  padding:40px 20px;
-  border-radius:0 0 30px 30px;
-}
+  :root {
+    --green-50: #E1F5EE; --green-100: #9FE1CB; --green-600: #0F6E56; --green-700: #1D9E75; --green-800: #085041;
+    --amber-50: #FAEEDA; --amber-600: #BA7517; --amber-800: #854F0B;
+    --blue-50: #E6F1FB; --blue-600: #185FA5; --blue-800: #0C447C;
+    --red-50: #FCEBEB; --red-600: #A32D2D; --red-800: #791F1F;
+    --purple-50: #EEEDFE; --purple-600: #534AB7; --purple-800: #3C3489;
+    --gray-50: #F7F6F2; --gray-100: #F1EFE8; --gray-200: #D3D1C7; --gray-400: #888780; --gray-600: #5F5E5A; --gray-800: #2C2C2A;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px; --radius-xl: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
+  }
 
-.hero h1{
-  font-size:24px;
-  margin-bottom:6px;
-}
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #FAFAF8;
+    color: #1a1a18;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
 
-.hero p{
-  opacity:.9;
-  font-size:14px;
-}
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0F6E56 0%, #1D9E75 50%, #2ab88c 100%);
+    color: white;
+    padding: 3rem 1.5rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  }
+  .hero-inner { max-width: 700px; margin: 0 auto; position: relative; }
+  .hero-eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    background: rgba(255,255,255,.2); border-radius: 20px; padding: 4px 12px;
+    display: inline-block; margin-bottom: 1rem; color: rgba(255,255,255,.9);
+  }
+  .hero h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.3; margin-bottom: .5rem; }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,.8); margin-bottom: 1.5rem; }
+  .hero-cards { display: flex; gap: 10px; flex-wrap: wrap; }
+  .hcard {
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25);
+    border-radius: var(--radius-md); padding: .5rem .875rem;
+    font-size: 13px; font-weight: 500; color: white;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .hcard-icon { font-size: 14px; }
 
-/* CARD */
-.card{
-  background:white;
-  margin:16px;
-  padding:16px;
-  border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.05);
-}
+  /* ALERT BANNER */
+  .alert-banner {
+    background: var(--blue-50); border-left: 4px solid var(--blue-600);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: .875rem 1.125rem; margin: 1.5rem auto;
+    font-size: 14px; color: #1a1a18; line-height: 1.6;
+    max-width: 700px;
+  }
+  .alert-banner strong { color: var(--blue-800); font-weight: 600; }
 
-/* BUTTON */
-.tabs{
-  display:flex;
-  gap:10px;
-  margin-top:10px;
-}
+  /* MAIN LAYOUT */
+  main { max-width: 700px; margin: 0 auto; padding: 0 1rem 3rem; }
 
-.btn{
-  flex:1;
-  padding:10px;
-  border-radius:10px;
-  border:none;
-  cursor:pointer;
-  font-weight:500;
-}
+  /* TABS */
+  .tab-group { display: flex; gap: 8px; margin: 1.5rem 0 1.25rem; }
+  .tab-btn {
+    flex: 1; padding: 10px 16px; border-radius: var(--radius-md);
+    border: 1.5px solid var(--gray-200); background: white;
+    font-size: 14px; font-weight: 600; color: var(--gray-600);
+    cursor: pointer; transition: all .15s; text-align: center;
+  }
+  .tab-btn:hover { border-color: var(--gray-400); color: #1a1a18; }
+  .tab-btn.active-a { background: var(--green-50); color: var(--green-600); border-color: var(--green-700); }
+  .tab-btn.active-b { background: var(--amber-50); color: var(--amber-800); border-color: var(--amber-600); }
 
-.btn.active{
-  background:#111827;
-  color:white;
-}
+  /* PLAN PANE */
+  .plan-pane { display: none; }
+  .plan-pane.show { display: block; }
 
-.btn.secondary{
-  background:#eee;
-}
+  /* PLAN HEADER */
+  .plan-header {
+    background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-lg);
+    padding: 1rem 1.125rem; margin-bottom: 1.5rem;
+    display: flex; align-items: flex-start; gap: 12px;
+    box-shadow: var(--shadow-sm);
+  }
+  .plan-badge {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .badge-a { background: var(--green-50); color: var(--green-600); }
+  .badge-b { background: var(--amber-50); color: var(--amber-800); }
+  .plan-header-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .plan-header-sub { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
 
-/* TIMELINE */
-.timeline{
-  border-left:3px solid #e5e7eb;
-  margin-left:10px;
-  padding-left:15px;
-}
+  /* SECTION LABEL */
+  .sec-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--gray-400); margin: 1.75rem 0 .875rem;
+  }
 
-.item{
-  margin-bottom:18px;
-  position:relative;
-}
+  /* BUS GRID */
+  .bus-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-bottom: .75rem; }
+  .bus-card {
+    background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-lg);
+    padding: .875rem 1rem; transition: box-shadow .15s;
+    box-shadow: var(--shadow-sm);
+  }
+  .bus-card:hover { box-shadow: var(--shadow-md); }
+  .bus-card.featured { border: 2px solid var(--green-700); }
+  .bus-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: .625rem; }
+  .bus-name { font-size: 14px; font-weight: 600; }
+  .bus-tag {
+    font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px;
+  }
+  .tag-top { background: var(--green-50); color: var(--green-600); }
+  .tag-alt { background: var(--gray-100); color: var(--gray-600); }
+  .bus-row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    font-size: 12px; padding: 4px 0; border-bottom: .5px solid var(--gray-100);
+    gap: 8px;
+  }
+  .bus-row:last-child { border-bottom: none; }
+  .bus-row .lbl { color: var(--gray-600); flex-shrink: 0; }
+  .bus-row .val { color: #1a1a18; text-align: right; font-weight: 500; word-break: break-word; }
+  .val.price { color: var(--green-600); font-weight: 700; }
 
-.item::before{
-  content:'';
-  position:absolute;
-  left:-22px;
-  top:5px;
-  width:10px;
-  height:10px;
-  background:#ff758c;
-  border-radius:50%;
-}
+  /* NOTE */
+  .note {
+    border-left: 3px solid; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: .625rem .875rem; font-size: 13px; line-height: 1.6; margin: .625rem 0 1rem;
+  }
+  .note-blue { background: var(--blue-50); border-color: var(--blue-600); color: var(--blue-800); }
+  .note-amber { background: var(--amber-50); border-color: var(--amber-600); color: var(--amber-800); }
+  .note-red { background: var(--red-50); border-color: #E24B4A; color: var(--red-600); }
+  .note-green { background: var(--green-50); border-color: var(--green-700); color: var(--green-600); }
+  .note strong { font-weight: 700; }
 
-.time{
-  font-size:12px;
-  color:#6b7280;
-}
+  hr.divider { border: none; border-top: 1px solid var(--gray-200); margin: 1.75rem 0; }
 
-.title{
-  font-weight:600;
-  margin:3px 0;
-}
+  /* TIMELINE */
+  .day-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: white; border: 1px solid var(--gray-200); border-radius: 20px;
+    padding: 4px 14px; font-size: 12px; font-weight: 600; color: var(--gray-600);
+    margin-bottom: 1rem; box-shadow: var(--shadow-sm);
+  }
+  .day-label-dot { width: 7px; height: 7px; border-radius: 50%; }
+  .dot-green { background: var(--green-700); }
+  .dot-amber { background: var(--amber-600); }
+  .dot-red { background: #E24B4A; }
+  .dot-blue { background: var(--blue-600); }
+  .dot-purple { background: var(--purple-600); }
 
-/* XE CARD */
-.grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
-}
+  .timeline { position: relative; padding-left: 28px; margin-bottom: 1.5rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 9px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--gray-200); border-radius: 1px;
+  }
+  .t-item { position: relative; margin-bottom: 1rem; }
+  .t-item::before {
+    content: ''; position: absolute; left: -21px; top: 8px;
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 2.5px solid var(--gray-400); background: white;
+  }
+  .t-item.tg::before { border-color: var(--green-700); }
+  .t-item.ta::before { border-color: var(--amber-600); }
+  .t-item.tr::before { border-color: #E24B4A; }
+  .t-item.tb::before { border-color: var(--blue-600); }
+  .t-item.tp::before { border-color: var(--purple-600); }
+  .t-time { font-size: 12px; font-weight: 600; color: var(--gray-600); margin-bottom: 3px; }
+  .t-desc { font-size: 14px; color: #1a1a18; line-height: 1.6; }
+  .t-desc strong { font-weight: 600; }
+  .t-tags { margin-top: 5px; display: flex; flex-wrap: wrap; gap: 4px; }
+  .t-tag {
+    font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px;
+  }
+  .tt-green { background: var(--green-50); color: var(--green-600); }
+  .tt-amber { background: var(--amber-50); color: var(--amber-800); }
+  .tt-red { background: var(--red-50); color: var(--red-600); }
+  .tt-blue { background: var(--blue-50); color: var(--blue-600); }
+  .tt-purple { background: var(--purple-50); color: var(--purple-800); }
+  .tt-gray { background: var(--gray-100); color: var(--gray-600); }
 
-.bus{
-  border:1px solid #eee;
-  padding:12px;
-  border-radius:12px;
-}
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 2rem 1rem;
+    font-size: 12px; color: var(--gray-400);
+    border-top: 1px solid var(--gray-200); margin-top: 1rem;
+  }
 
-.bus strong{
-  font-size:15px;
-}
-
-.price{
-  color:#16a34a;
-  font-weight:600;
-}
-
-/* CTA */
-.cta{
-  text-align:center;
-  padding:20px;
-}
-
-.cta button{
-  background:#ff758c;
-  color:white;
-  border:none;
-  padding:12px 20px;
-  border-radius:12px;
-  font-size:14px;
-  cursor:pointer;
-}
+  @media(max-width: 480px) {
+    .bus-grid { grid-template-columns: 1fr; }
+    .hero { padding: 2.5rem 1rem 2rem; }
+    .tab-btn { font-size: 13px; padding: 8px 10px; }
+  }
 </style>
 </head>
-
 <body>
 
 <div class="hero">
-  <h1>💍 Đám cưới Ea Drăng</h1>
-  <p>Sài Gòn → Đắk Lắk · 15–17/5/2026</p>
-
-  <div class="tabs">
-    <button class="btn active">Đi 3 ngày</button>
-    <button class="btn secondary">Đi 1 ngày</button>
-  </div>
-</div>
-
-<div class="card">
-  <h3>📍 Lịch trình chính</h3>
-
-  <div class="timeline">
-    <div class="item">
-      <div class="time">Tối 14/5</div>
-      <div class="title">Lên xe tại Sài Gòn</div>
-      <div>Ngủ qua đêm (~8-10 tiếng)</div>
-    </div>
-
-    <div class="item">
-      <div class="time">Sáng 15/5</div>
-      <div class="title">Đến khách sạn Hoa Đào</div>
-      <div>Nghỉ ngơi, ăn sáng</div>
-    </div>
-
-    <div class="item">
-      <div class="time">16/5</div>
-      <div class="title">Dự tiệc cưới</div>
-      <div>10:30 – 13:30</div>
-    </div>
-
-    <div class="item">
-      <div class="time">Chiều 16/5</div>
-      <div class="title">Về lại Sài Gòn</div>
-      <div>~8–9 tiếng</div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">💍 Kế hoạch di chuyển</span>
+    <h1>Đám cưới tại Ea Drăng<br>Đắk Lắk · Tháng 5/2026</h1>
+    <p class="hero-sub">Khách sạn Hoa Đào · TT. Ea Drăng, Huyện Ea H'Leo · Lễ cưới 15–17/5/2026</p>
+    <div class="hero-cards">
+      <div class="hcard"><span class="hcard-icon">📍</span> Sài Gòn → Ea Drăng</div>
+      <div class="hcard"><span class="hcard-icon">🚌</span> ~8–10 tiếng xe đêm</div>
+      <div class="hcard"><span class="hcard-icon">🏨</span> KS Hoa Đào · Điểm tập kết</div>
+      <div class="hcard"><span class="hcard-icon">🛣️</span> Quốc lộ 14</div>
     </div>
   </div>
 </div>
 
-<div class="card">
-  <h3>🚌 Nhà xe đề xuất</h3>
+<main>
+  <div class="alert-banner">
+    <strong>✅ Lợi thế địa lý:</strong> Ea Drăng nằm ngay trên <strong>Quốc lộ 14</strong> — tất cả xe Sài Gòn–Ea H'Leo đều đi qua đây. Xe trả thẳng tại cổng Khách sạn Hoa Đào. Chiều về, xe đón ngay tại Ea Drăng — <strong>không cần ra tận BMT</strong> (cách ~70km). Hoàng Thủy, Điều Hòa, Cường Ny, Anh Phụng đều có điểm đón tại Ea Drăng.
+  </div>
 
-  <div class="grid">
-    <div class="bus">
-      <strong>Hoàng Thủy ⭐</strong><br>
-      Giờ: 18:30 / 21:00<br>
-      Giá: <span class="price">260k – 350k</span>
+  <div class="tab-group">
+    <button class="tab-btn active-a" id="btn-a" onclick="showPlan('a')">
+      📅 Phương án A<br><small style="font-weight:400;font-size:11px;">Dự từ 15/5 · 3 ngày</small>
+    </button>
+    <button class="tab-btn" id="btn-b" onclick="showPlan('b')">
+      ⚡ Phương án B<br><small style="font-weight:400;font-size:11px;">Chỉ dự 16/5 · Trong ngày</small>
+    </button>
+  </div>
+
+  <!-- ===== PLAN A ===== -->
+  <div class="plan-pane show" id="plan-a">
+    <div class="plan-header">
+      <div class="plan-badge badge-a">A</div>
+      <div>
+        <div class="plan-header-title">Tham dự đầy đủ — có mặt cả 3 ngày</div>
+        <div class="plan-header-sub">Xe đêm 14/5 → Đến Hoa Đào sáng 15/5 → Dự lễ đón khách chiều 15/5 + tiệc cưới 16/5 → Xe về chiều/tối 16/5 hoặc sáng 17/5</div>
+      </div>
     </div>
 
-    <div class="bus">
-      <strong>Cường Ny</strong><br>
-      Giờ: 20:00 – 22:00<br>
-      Giá: <span class="price">330k – 450k</span>
+    <div class="sec-label">🚌 Xe đi — Xuất phát tối 14/5 từ Sài Gòn</div>
+    <div class="bus-grid">
+      <div class="bus-card featured">
+        <div class="bus-card-top">
+          <span class="bus-name">Hoàng Thủy</span>
+          <span class="bus-tag tag-top">Gợi ý #1</span>
+        </div>
+        <div class="bus-row"><span class="lbl">Giờ xuất SGN</span><span class="val">18:25 · 18:30 · 21:00</span></div>
+        <div class="bus-row"><span class="lbl">Điểm đón</span><span class="val">BX Miền Đông, VP Tân Bình</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
+        <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~04:00–06:00</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">260.000–350.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0962 772 775</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Điều Hòa</span><span class="bus-tag tag-alt">#2</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất SGN</span><span class="val">Tối — nhiều chuyến</span></div>
+        <div class="bus-row"><span class="lbl">Điểm đón</span><span class="val">BX Miền Đông, VP Tân Bình</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
+        <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~05:00–07:00</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Điều Hòa"</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Cường Ny</span><span class="bus-tag tag-alt">#3</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất SGN</span><span class="val">19:00 · 20:00 · 21:00 · 22:00</span></div>
+        <div class="bus-row"><span class="lbl">Điểm đón</span><span class="val">BX Miền Đông, An Sương, Bình Phước</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
+        <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~05:00–07:00</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">330.000–450.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0972 908 908</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Anh Phụng</span><span class="bus-tag tag-alt">#4</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất SGN</span><span class="val">19:00</span></div>
+        <div class="bus-row"><span class="lbl">Điểm đón</span><span class="val">BX Miền Đông</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
+        <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~06:00 sáng</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Anh Phụng"</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Phương Trang</span><span class="bus-tag tag-alt">#5</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất SGN</span><span class="val">Nhiều chuyến đến 23:00</span></div>
+        <div class="bus-row"><span class="lbl">Điểm đón</span><span class="val">BX Miền Đông, VP Tân Bình</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
+        <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~05:00–08:00</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">từ 255.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">1900 6067 · futabus.vn</span></div>
+      </div>
+    </div>
+    <div class="note note-blue">Khi đặt vé: báo nhà xe <strong>điểm trả là Khách sạn Hoa Đào, TT. Ea Drăng</strong>. Xe sẽ thả thẳng tại cổng — không cần Grab.</div>
+
+    <hr class="divider">
+    <div class="sec-label">🗓️ Lịch trình chi tiết</div>
+
+    <div class="day-label"><span class="day-label-dot dot-green"></span>Tối 14/5 · Lên đường từ Sài Gòn</div>
+    <div class="timeline">
+      <div class="t-item tg">
+        <div class="t-time">18:25 – 21:00 · Lên xe tại điểm đón</div>
+        <div class="t-desc">Chọn chuyến phù hợp. Ra điểm đón trước 15 phút. Ngủ xuyên đêm trên xe, hành trình ~8–10 tiếng.</div>
+        <div class="t-tags"><span class="t-tag tt-green">Xuất phát Sài Gòn</span><span class="t-tag tt-gray">QL14 → Ea Drăng</span></div>
+      </div>
+    </div>
+
+    <div class="day-label"><span class="day-label-dot dot-amber"></span>Sáng 15/5 · Ngày đón khách</div>
+    <div class="timeline">
+      <div class="t-item tg">
+        <div class="t-time">04:00–07:00 · Xe trả tại cổng Khách sạn Hoa Đào</div>
+        <div class="t-desc">Nhận phòng sớm hoặc gửi hành lý, tắm rửa, ăn sáng tại Ea Drăng. Nghỉ ngơi trước buổi chiều.</div>
+        <div class="t-tags"><span class="t-tag tt-green">Khách sạn Hoa Đào · Ea Drăng</span></div>
+      </div>
+      <div class="t-item ta">
+        <div class="t-time">12:15 · Xe cưới đón nhà gái từ sân bay BMT</div>
+        <div class="t-desc">Khách đang có mặt tại Hoa Đào — đúng điểm tập kết của xe cưới.</div>
+        <div class="t-tags"><span class="t-tag tt-amber">Sân bay BMT → Khách sạn Hoa Đào</span></div>
+      </div>
+      <div class="t-item ta">
+        <div class="t-time">16:30–17:00 · Xe cưới đưa đến nhà trai</div>
+        <div class="t-desc">~3 chuyến xe 16 chỗ đón từ Hoa Đào. Gặp gỡ hai họ tại Nhà trai (Buôn Lê).</div>
+        <div class="t-tags"><span class="t-tag tt-amber">Hoa Đào → Nhà trai (Buôn Lê)</span></div>
+      </div>
+      <div class="t-item ta">
+        <div class="t-time">19:00–22:00 · Buổi tối tại nhà trai</div>
+        <div class="t-desc">Ăn uống, gặp gỡ hai gia đình. Xe cưới đưa về khách sạn sau khi kết thúc.</div>
+        <div class="t-tags"><span class="t-tag tt-amber">Nhà trai → Khách sạn Hoa Đào</span></div>
+      </div>
+    </div>
+
+    <div class="day-label"><span class="day-label-dot dot-amber"></span>16/5 · Ngày cưới chính 🎊</div>
+    <div class="timeline">
+      <div class="t-item tg">
+        <div class="t-time">07:00–10:00 · Ăn sáng, chuẩn bị trang phục</div>
+        <div class="t-desc">Nghỉ tại Hoa Đào, mặc đồ dự tiệc. Chờ xe cưới đón tại cổng lúc 10:30.</div>
+      </div>
+      <div class="t-item ta">
+        <div class="t-time">10:30 · Xe cưới đón tại cổng Hoa Đào</div>
+        <div class="t-tags"><span class="t-tag tt-amber">Hoa Đào → Nhà hàng Đông Huệ</span></div>
+      </div>
+      <div class="t-item ta">
+        <div class="t-time">10:30–13:30 · Dự tiệc cưới chính</div>
+        <div class="t-desc">Nghi lễ, tiệc, chụp ảnh cùng cô dâu chú rể và hai gia đình.</div>
+      </div>
+      <div class="t-item ta">
+        <div class="t-time">12:30–13:30 · Xe cưới tiễn về Hoa Đào</div>
+        <div class="t-tags"><span class="t-tag tt-amber">Nhà hàng Đông Huệ → Hoa Đào</span></div>
+      </div>
+    </div>
+
+    <div class="day-label"><span class="day-label-dot dot-red"></span>Chiều–Tối 16/5 · Về Sài Gòn (xe đón ngay tại Ea Drăng)</div>
+    <div class="timeline">
+      <div class="t-item tr">
+        <div class="t-time">~14:00–16:00 · Lên xe về Sài Gòn ngay tại Ea Drăng</div>
+        <div class="t-desc">Báo nhà xe trước (hoặc đặt vé chiều trước) để xe đón tại <strong>Khách sạn Hoa Đào / QL14 Ea Drăng</strong>. Các xe từ Ea H'Leo chạy về SGN đều qua điểm này.</div>
+        <div class="t-tags"><span class="t-tag tt-red">Ea Drăng (QL14) → Sài Gòn</span></div>
+      </div>
+      <div class="t-item tr">
+        <div class="t-time">~22:00–01:00 sáng · Về đến Sài Gòn</div>
+        <div class="t-desc">Hành trình ~8–9 tiếng. Về đến BX Miền Đông hoặc được trả tận nơi trong nội thành.</div>
+      </div>
+    </div>
+
+    <div class="sec-label">🚌 Xe về — Chiều tối 16/5 xuất phát từ Ea Drăng</div>
+    <div class="bus-grid">
+      <div class="bus-card featured">
+        <div class="bus-card-top"><span class="bus-name">Hoàng Thủy</span><span class="bus-tag tag-top">Gợi ý #1</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~19:00–21:30</span></div>
+        <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–06:00 sáng 17/5</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả SGN</span><span class="val">BX Miền Đông, VP Tân Bình</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">260.000–350.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0962 772 775</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Cường Ny</span><span class="bus-tag tag-alt">#2</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~19:00–22:00</span></div>
+        <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–07:00 sáng 17/5</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả SGN</span><span class="val">BX Miền Đông, nội thành</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">330.000–450.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0972 908 908</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Điều Hòa</span><span class="bus-tag tag-alt">#3</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~20:00–22:00</span></div>
+        <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–07:00 sáng 17/5</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả SGN</span><span class="val">BX Miền Đông, VP Tân Bình</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Điều Hòa"</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Anh Phụng</span><span class="bus-tag tag-alt">#4</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~18:30</span></div>
+        <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~03:00–04:00 sáng 17/5</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả SGN</span><span class="val">BX Miền Đông, nội thành</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Anh Phụng"</span></div>
+      </div>
+    </div>
+    <div class="note note-amber"><strong>⚠️ Quan trọng:</strong> Xe về chạy từ Gia Lai/Ea H'Leo xuống, ghé Ea Drăng theo QL14. Cần <strong>đặt vé chiều về trước khi lên đường</strong> (đặt cùng lúc với vé đi) và xác nhận giờ đón với nhà xe vào sáng 16/5. Anh Phụng có văn phòng ngay tại Ea Drăng (462 Giải Phóng) — rất thuận tiện mua vé trực tiếp.</div>
+
+    <div class="day-label" style="margin-top:1.25rem"><span class="day-label-dot dot-blue"></span>17/5 · Phương án về sáng (thay thế)</div>
+    <div class="timeline">
+      <div class="t-item tp">
+        <div class="t-time">09:00 · Đi cùng xe tiễn nhà gái ra sân bay BMT</div>
+        <div class="t-desc">Hỏi gia đình để đi cùng xe cưới ra sân bay, sau đó đặt vé bay về SGN. Thoải mái hơn, tránh về xe đêm sau ngày tiệc mệt.</div>
+        <div class="t-tags"><span class="t-tag tt-purple">Hoa Đào → Sân bay BMT → SGN</span></div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="cta">
-  <button>📞 Gọi đặt xe</button>
-</div>
+  <!-- ===== PLAN B ===== -->
+  <div class="plan-pane" id="plan-b">
+    <div class="plan-header">
+      <div class="plan-badge badge-b">B</div>
+      <div>
+        <div class="plan-header-title">Chỉ dự tiệc cưới 16/5 — Về trong buổi</div>
+        <div class="plan-header-sub">Xe đêm 15/5 → Đến Hoa Đào sáng 16/5 → Dự tiệc 10:30 → Lên xe về Sài Gòn chiều tối 16/5 ngay tại Ea Drăng</div>
+      </div>
+    </div>
 
+    <div class="sec-label">🚌 Xe đi — Xuất phát tối 15/5 từ Sài Gòn</div>
+    <div class="bus-grid">
+      <div class="bus-card featured">
+        <div class="bus-card-top"><span class="bus-name">Hoàng Thủy</span><span class="bus-tag tag-top">Gợi ý #1</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất SGN</span><span class="val">18:25 · 18:30 · 21:00</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
+        <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~04:00–06:00</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">260.000–350.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0962 772 775</span></div>
+      </div>
+      <div class="bus-card featured">
+        <div class="bus-card-top"><span class="bus-name">Cường Ny</span><span class="bus-tag tag-top">Gợi ý #1</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất SGN</span><span class="val">20:00 · 21:00 · 22:00</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
+        <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~05:00–07:00</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">330.000–450.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0972 908 908</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Điều Hòa</span><span class="bus-tag tag-alt">#3</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất SGN</span><span class="val">Tối — nhiều chuyến</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
+        <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~05:00–07:00</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Điều Hòa"</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Anh Phụng</span><span class="bus-tag tag-alt">#4</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất SGN</span><span class="val">19:00</span></div>
+        <div class="bus-row"><span class="lbl">Điểm trả</span><span class="val">Cổng KS Hoa Đào</span></div>
+        <div class="bus-row"><span class="lbl">Đến nơi</span><span class="val">~06:00 sáng</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Anh Phụng"</span></div>
+      </div>
+    </div>
+    <div class="note note-blue">Khi đặt vé: báo nhà xe <strong>điểm trả là Khách sạn Hoa Đào, TT. Ea Drăng</strong>.</div>
+
+    <hr class="divider">
+    <div class="sec-label">🗓️ Lịch trình chi tiết</div>
+
+    <div class="day-label"><span class="day-label-dot dot-amber"></span>Tối 15/5 · Lên đường</div>
+    <div class="timeline">
+      <div class="t-item tg">
+        <div class="t-time">18:25–21:00 · Lên xe tại Sài Gòn</div>
+        <div class="t-desc">Chọn chuyến 20:00–21:00 để đến Ea Drăng lúc 05:00–07:00 — đủ thời gian nghỉ trước tiệc 10:30.</div>
+        <div class="t-tags"><span class="t-tag tt-green">Xuất phát Sài Gòn</span></div>
+      </div>
+    </div>
+
+    <div class="day-label"><span class="day-label-dot dot-amber"></span>Sáng 16/5 · Ngày cưới chính 🎊</div>
+    <div class="timeline">
+      <div class="t-item tg">
+        <div class="t-time">05:00–07:00 · Xe trả tại cổng Khách sạn Hoa Đào</div>
+        <div class="t-desc">Nhận phòng sớm hoặc gửi hành lý. Tắm rửa, ăn sáng. Nghỉ 2–3 tiếng. <strong>Lưu ý:</strong> xác nhận check-in sớm với khách sạn khi đặt phòng.</div>
+        <div class="t-tags"><span class="t-tag tt-green">Khách sạn Hoa Đào · Ea Drăng</span></div>
+      </div>
+      <div class="t-item tg">
+        <div class="t-time">09:30–10:15 · Mặc đồ, sẵn sàng</div>
+        <div class="t-desc">Trang phục dự tiệc. Xuống sảnh chờ xe cưới đón lúc 10:30.</div>
+      </div>
+      <div class="t-item ta">
+        <div class="t-time">10:30 · Xe cưới đón tại cổng Hoa Đào</div>
+        <div class="t-tags"><span class="t-tag tt-amber">Hoa Đào → Nhà hàng Đông Huệ</span></div>
+      </div>
+      <div class="t-item ta">
+        <div class="t-time">10:30–13:30 · Dự tiệc cưới chính</div>
+        <div class="t-desc">Nghi lễ, tiệc, chụp ảnh cùng cô dâu chú rể.</div>
+      </div>
+      <div class="t-item ta">
+        <div class="t-time">12:30–13:30 · Xe cưới tiễn về Hoa Đào</div>
+        <div class="t-desc">Về khách sạn, ăn trưa/nghỉ ngơi, chuẩn bị hành lý về Sài Gòn.</div>
+        <div class="t-tags"><span class="t-tag tt-amber">Nhà hàng Đông Huệ → Hoa Đào</span></div>
+      </div>
+    </div>
+
+    <div class="day-label"><span class="day-label-dot dot-red"></span>Chiều–Tối 16/5 · Về Sài Gòn ngay trong ngày</div>
+    <div class="timeline">
+      <div class="t-item tr">
+        <div class="t-time">~14:00–16:00 · Trả phòng, chờ xe tại Ea Drăng</div>
+        <div class="t-desc">Ra cổng KS Hoa Đào / QL14. Xe từ Gia Lai đi xuống sẽ ghé đón tại đây. Cần <strong>đặt vé chiều về trước</strong> và báo điểm đón rõ ràng.</div>
+      </div>
+      <div class="t-item tr">
+        <div class="t-time">~18:30–21:00 · Xe xuất phát từ Ea Drăng về SGN</div>
+        <div class="t-desc">Ngủ trên xe, hành trình ~8–9 tiếng.</div>
+        <div class="t-tags"><span class="t-tag tt-red">Ea Drăng (QL14) → Sài Gòn</span></div>
+      </div>
+      <div class="t-item tr">
+        <div class="t-time">Sáng 17/5 · 03:00–06:00 · Về đến Sài Gòn</div>
+        <div class="t-desc">Xe trả tại BX Miền Đông hoặc điểm hẹn nội thành tùy nhà xe.</div>
+        <div class="t-tags"><span class="t-tag tt-red">BX Miền Đông / nội thành SGN</span></div>
+      </div>
+    </div>
+
+    <div class="sec-label">🚌 Xe về — Chiều tối 16/5 xuất phát Ea Drăng</div>
+    <div class="bus-grid">
+      <div class="bus-card featured">
+        <div class="bus-card-top"><span class="bus-name">Hoàng Thủy</span><span class="bus-tag tag-top">Gợi ý #1</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~19:00–21:30</span></div>
+        <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–06:00 sáng 17/5</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">260.000–350.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0962 772 775</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Anh Phụng</span><span class="bus-tag tag-alt">#2</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~18:30</span></div>
+        <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~03:00–04:00 sáng 17/5</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Anh Phụng"</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Cường Ny</span><span class="bus-tag tag-alt">#3</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~19:00–22:00</span></div>
+        <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–07:00 sáng 17/5</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">330.000–450.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">0972 908 908</span></div>
+      </div>
+      <div class="bus-card">
+        <div class="bus-card-top"><span class="bus-name">Điều Hòa</span><span class="bus-tag tag-alt">#4</span></div>
+        <div class="bus-row"><span class="lbl">Giờ xuất Ea Drăng</span><span class="val">~20:00–22:00</span></div>
+        <div class="bus-row"><span class="lbl">Đến SGN</span><span class="val">~04:00–07:00 sáng 17/5</span></div>
+        <div class="bus-row"><span class="lbl">Giá vé</span><span class="val price">300.000–400.000đ</span></div>
+        <div class="bus-row"><span class="lbl">Liên hệ</span><span class="val">vexere.com · "Điều Hòa"</span></div>
+      </div>
+    </div>
+    <div class="note note-amber"><strong>⚠️ Quan trọng:</strong> Xe về xuất phát từ Gia Lai hoặc Ea H'Leo rồi đi qua Ea Drăng. Cần <strong>đặt vé trước & báo điểm đón là QL14 Ea Drăng / KS Hoa Đào</strong> để tài xế ghé đón. Giờ cụ thể có thể dao động — liên hệ nhà xe xác nhận trước ngày đi.</div>
+  </div>
+</main>
+
+<footer>
+  Kế hoạch dự đám cưới · Sài Gòn → Ea Drăng · Tháng 5/2026 · Thông tin có thể thay đổi, vui lòng xác nhận với nhà xe trước khi đặt vé.
+</footer>
+
+<script>
+function showPlan(p) {
+  document.querySelectorAll('.plan-pane').forEach(el => el.classList.remove('show'));
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active-a', 'active-b');
+  });
+  document.getElementById('plan-' + p).classList.add('show');
+  document.getElementById('btn-' + p).classList.add('active-' + p);
+}
+</script>
 </body>
 </html>
