@@ -230,6 +230,35 @@
   .qc-name { font-size: 13px; font-weight: 600; color: #1a1a18; margin-bottom: 3px; }
   .qc-phone { font-size: 16px; font-weight: 700; color: var(--green-600); margin-bottom: 2px; }
   .qc-note { font-size: 11px; color: var(--gray-400); }
+
+  .hero-tabs {
+    display: flex; gap: 10px; margin-top: 1.5rem; flex-wrap: wrap;
+  }
+  .hero-tab {
+    flex: 1; min-width: 160px;
+    display: flex; align-items: center; gap: 10px;
+    padding: .75rem 1rem;
+    background: rgba(255,255,255,.12);
+    border: 1.5px solid rgba(255,255,255,.3);
+    border-radius: var(--radius-lg);
+    cursor: pointer; transition: all .15s;
+    text-align: left;
+  }
+  .hero-tab:hover { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.5); }
+  .hero-tab.active-a { background: rgba(255,255,255,.25); border-color: white; box-shadow: 0 0 0 2px rgba(255,255,255,.4); }
+  .hero-tab.active-b { background: rgba(250,238,218,.25); border-color: #FAEEDA; box-shadow: 0 0 0 2px rgba(186,117,23,.5); }
+  .hero-tab-letter {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700;
+    background: rgba(255,255,255,.25); color: white;
+  }
+  .active-b .hero-tab-letter { background: rgba(186,117,23,.35); color: #FAEEDA; }
+  .hero-tab-text { display: flex; flex-direction: column; }
+  .hero-tab-title { font-size: 14px; font-weight: 700; color: white; line-height: 1.2; }
+  .active-b .hero-tab-title { color: #FAEEDA; }
+  .hero-tab-sub { font-size: 11px; color: rgba(255,255,255,.7); margin-top: 2px; }
+  .active-b .hero-tab-sub { color: rgba(250,238,218,.75); }
 </style>
 </head>
 <body>
@@ -244,6 +273,22 @@
       <div class="hcard"><span class="hcard-icon">🚌</span> ~8–10 tiếng xe đêm</div>
       <div class="hcard"><span class="hcard-icon">🏨</span> KS Hoa Đào · Điểm tập kết</div>
       <div class="hcard"><span class="hcard-icon">🛣️</span> Quốc lộ 14</div>
+    </div>
+    <div class="hero-tabs">
+      <button class="hero-tab active-a" id="btn-a" onclick="showPlan('a')">
+        <span class="hero-tab-letter">A</span>
+        <span class="hero-tab-text">
+          <span class="hero-tab-title">Phương án A</span>
+          <span class="hero-tab-sub">Dự từ 15/5 · 3 ngày</span>
+        </span>
+      </button>
+      <button class="hero-tab" id="btn-b" onclick="showPlan('b')">
+        <span class="hero-tab-letter">B</span>
+        <span class="hero-tab-text">
+          <span class="hero-tab-title">Phương án B</span>
+          <span class="hero-tab-sub">Chỉ dự 16/5 · Về trong ngày</span>
+        </span>
+      </button>
     </div>
   </div>
 </div>
@@ -284,15 +329,6 @@
         <div class="qc-note">Web: futabus.vn</div>
       </a>
     </div>
-  </div>
-
-  <div class="tab-group">
-    <button class="tab-btn active-a" id="btn-a" onclick="showPlan('a')">
-      📅 Phương án A<br><small style="font-weight:400;font-size:11px;">Dự từ 15/5 · 3 ngày</small>
-    </button>
-    <button class="tab-btn" id="btn-b" onclick="showPlan('b')">
-      ⚡ Phương án B<br><small style="font-weight:400;font-size:11px;">Chỉ dự 16/5 · Trong ngày</small>
-    </button>
   </div>
 
   <!-- ===== PLAN A ===== -->
@@ -819,7 +855,7 @@
 <script>
 function showPlan(p) {
   document.querySelectorAll('.plan-pane').forEach(el => el.classList.remove('show'));
-  document.querySelectorAll('.tab-btn').forEach(btn => {
+  document.querySelectorAll('.hero-tab, .tab-btn').forEach(btn => {
     btn.classList.remove('active-a', 'active-b');
   });
   document.getElementById('plan-' + p).classList.add('show');
