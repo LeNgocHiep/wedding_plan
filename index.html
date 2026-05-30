@@ -847,9 +847,74 @@
   </div>
 </main>
 
+<!-- COUNTDOWN -->
+<section id="countdown-section" style="background: linear-gradient(135deg, #0F6E56 0%, #1D9E75 100%); padding: 2rem 1rem; text-align: center; color: white;">
+  <div style="max-width: 700px; margin: 0 auto;">
+    <div style="font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-bottom: .5rem;">Đếm ngược đến ngày trọng đại</div>
+    <div style="font-size: 17px; font-weight: 700; margin-bottom: 1.25rem;">
+      🎊 Lễ Thành Hôn &amp; Tiệc Cưới · 16/5/2026 · 10:30 SA
+    </div>
+    <div id="countdown-display" style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 1.25rem;">
+      <div class="cd-box"><span class="cd-num" id="cd-days">--</span><span class="cd-lbl">Ngày</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-hours">--</span><span class="cd-lbl">Giờ</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-mins">--</span><span class="cd-lbl">Phút</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-secs">--</span><span class="cd-lbl">Giây</span></div>
+    </div>
+    <div style="font-size: 12px; color: rgba(255,255,255,.7); line-height: 1.7;">
+      📅 Lễ đón khách &amp; gặp mặt hai họ: <strong style="color:white;">Chiều 15/5/2026 · 16:30</strong><br>
+      🍽️ Tiệc cưới chính tại Nhà hàng Đông Huệ: <strong style="color:white;">16/5/2026 · 10:30 SA</strong><br>
+      📍 Khách sạn Hoa Đào · TT. Ea Drăng · Huyện Ea H'Leo · Đắk Lắk
+    </div>
+  </div>
+</section>
+
+<style>
+  .cd-box {
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+    border-radius: 12px; padding: .75rem 1.25rem; min-width: 72px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .cd-num {
+    font-size: 2rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums;
+    display: block;
+  }
+  .cd-lbl {
+    font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: rgba(255,255,255,.75); margin-top: 4px; display: block;
+  }
+</style>
+
 <footer>
-  Kế hoạch dự đám cưới · Sài Gòn → Ea Drăng · Tháng 5/2026 · Thông tin có thể thay đổi, vui lòng xác nhận với nhà xe trước khi đặt vé.
+  Kế hoạch dự đám cưới · Sài Gòn → Ea Drăng · Lễ cưới 15–17/5/2026 · Thông tin có thể thay đổi, vui lòng xác nhận với nhà xe trước khi đặt vé.
 </footer>
+
+<script>
+(function() {
+  var target = new Date('2026-05-16T10:30:00+07:00').getTime();
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    var now = Date.now();
+    var diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = pad(d);
+    document.getElementById('cd-hours').textContent = pad(h);
+    document.getElementById('cd-mins').textContent = pad(m);
+    document.getElementById('cd-secs').textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
 
 <script>
 function showPlan(p) {
